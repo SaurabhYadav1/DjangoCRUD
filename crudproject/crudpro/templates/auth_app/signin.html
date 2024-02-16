@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+<title>SIGNIN</title>
+{% endblock  %}
+
+
+{% block content %}
+<div class="container">
+    <h1><u><center>LOGIN</center></u></h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="u">ENTER USERNAME</label>
+        <input type="text" id="u" name="un" class="form-control">
+        <br>
+        <label for="p">ENTER PASSWORD</label>
+        <input type="password" id="p" name="pw" class="form-control">
+        <br>
+         <input type="submit" value="LOGIN" class="btn btn-outline-success ">
+         <input type="reset" value="RESET" class="btn btn-outline-danger float-end">
+    </form>
+</div>
+{% endblock %}

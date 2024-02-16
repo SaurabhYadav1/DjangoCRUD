@@ -1,0 +1,37 @@
+ {% extends 'base.html' %}
+
+
+ {% block title %}
+    <title>SHOW CUSTOMER</title>
+    {% endblock %}
+
+ {% block content %}
+     <table class="table">
+         <thead>
+                <tr>
+                    <th>CustomerID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Action</th>
+
+                </tr>
+         </thead>
+         <tbody>
+            {% for record in data %}
+                <tr>
+                    <td>{{record.c_id}}</td>
+                    <td>{{record.f_name}}</td>
+                    <td>{{record.l_name}}</td>
+                    <td>{{record.product}}</td>
+                    <td>{{record.price}}</td>
+                    <td>
+                        <a href="{% url 'update_url' record.id %}"><button class="btn btn-outline-success">Update</button></a>
+                        <a href="{% url 'delete_url'  record.id %}"><button class="btn btn-outline-danger">DELETE</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+         </tbody>
+     </table>
+{% endblock %}
